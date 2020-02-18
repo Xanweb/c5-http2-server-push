@@ -1,4 +1,6 @@
 # Concrete5 HTTP2 Server Push
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/xanweb/c5-http2-server-push.svg?maxAge=2592000?style=flat-square)](https://packagist.org/packages/xanweb/c5-http2-server-push)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
 Middleware library for Concrete5 to use HTTP/2 pushes
 
@@ -50,9 +52,10 @@ if (file_exists(DIR_BASE . '/' . DIRNAME_VENDOR . '/autoload.php')) {
 ## Usage
 ````php
     // Example with Font Preload
-    $link = new \Xanweb\ServerPush\Link('preload', '/path/to/font.woff2');
-    $link = $link->withAttribute('as', 'font')
-                 ->withAttribute('type', 'font/woff2')
-                 ->withAttribute('crossorigin', 'anonymous');
+    $link = (new \Xanweb\ServerPush\Link('preload', '/path/to/font.woff2'))
+                ->withAttribute('as', 'font')
+                ->withAttribute('type', 'font/woff2')
+                ->withAttribute('crossorigin', 'anonymous');
+
     app('http2/server-push')->queueLink($link);
 ````
