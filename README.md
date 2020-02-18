@@ -1,6 +1,6 @@
 # Concrete5 HTTP2 Server Push
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/xanweb/c5-http2-server-push.svg?maxAge=2592000?style=flat-square)](https://packagist.org/packages/xanweb/c5-http2-server-push)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/xanweb/c5-http2-server-push.svg?maxAge=2592000&style=flat-square)](https://packagist.org/packages/xanweb/c5-http2-server-push)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 Middleware library for Concrete5 to use HTTP/2 pushes
 
