@@ -1,0 +1,34 @@
+{
+    "name": "xanweb/c5-http2-server-push",
+    "description": "A middleware package for Concrete5 to use HTTP/2 pushes",
+    "keywords": ["concrete5", "concrete5-v8", "link", "psr13", "http", "http2", "preload", "prefetch", "prerender", "dns-prefetch", "push", "performance"],
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.2",
+        "psr/link": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xanweb\\ServerPush\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Xanweb\\ServerPush\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.3"
+    },
+    "extra" : {
+        "concrete5" : {
+            "providers" : [
+                "Xanweb\\ServerPush\\ServiceProvider"
+            ]
+        }
+    },
+    "support": {
+        "source": "https://github.com/xanweb/c5-http2-server-push"
+    }
+}

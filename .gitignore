@@ -1,0 +1,40 @@
+# ignore system files
+.DS_Store
+.idea
+thumbs.db
+__MACOSX
+._*
+.*swp
+.*swo
+.env
+.ftpquota
+
+# ignore composer files
+composer.phar
+composer.lock
+
+# ignore domain security files
+.htaccess
+.htpasswd
+
+/concrete/*
+
+# ignore IDE project files
+.project
+/nbproject/
+/.idea/
+
+# ignore Eclipse-specific files
+/.settings/
+/.buildpath
+
+# ignore PHP symbol map
+__IDE_SYMBOLS__.php
+.phpstorm.meta.php
+
+# phpunit
+.phpunit.result.cache
+
+# php-cs-fixer
+.php_cs.cache
+/vendor/
