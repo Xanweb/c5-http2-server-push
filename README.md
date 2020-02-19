@@ -11,7 +11,7 @@ Include library to your composer.json
 composer require xanweb/c5-http2-server-push
 ```
 
-Add the service provider and middleware to `application/config/app.php` :
+Add the service provider and middleware to `application/config/app.php`
 ```php
 return [
     'providers' => [
@@ -51,11 +51,13 @@ if (file_exists(DIR_BASE . '/' . DIRNAME_VENDOR . '/autoload.php')) {
 
 ## Usage
 ````php
+    use \Fig\Link\Link;
+    use \Fig\Link\Relations;
+    
     // Example with Font Preload
-    $link = (new \Xanweb\ServerPush\Link('preload', '/path/to/font.woff2'))
+    $link = (new Link(Relations::REL_PRELOAD, '/path/to/font.woff2'))
                 ->withAttribute('as', 'font')
-                ->withAttribute('type', 'font/woff2')
-                ->withAttribute('crossorigin', 'anonymous');
+                ->withAttribute('type', 'font/woff2');
 
     app('http2/server-push')->queueLink($link);
 ````
