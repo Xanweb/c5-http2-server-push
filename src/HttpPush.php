@@ -1,20 +1,13 @@
 <?php
 namespace Xanweb\ServerPush;
 
+use Fig\Link\LinkProviderTrait;
 use Psr\Link\LinkProviderInterface;
 use Psr\Link\LinkInterface;
 
 class HttpPush implements LinkProviderInterface
 {
-    /**
-     * An array of the links in this provider.
-     *
-     * The keys of the array MUST be the spl_object_hash() of the object being stored.
-     * That helps to ensure uniqueness.
-     *
-     * @var LinkInterface[]
-     */
-    private $links = [];
+    use LinkProviderTrait;
 
     /**
      * Push link onto the queue for the middleware.
@@ -42,26 +35,6 @@ class HttpPush implements LinkProviderInterface
         unset($this->links[spl_object_id($link)]);
 
         return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getLinks()
-    {
-        return array_values($this->links);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getLinksByRel($rel)
-    {
-        $filter = function (LinkInterface $link) use ($rel) {
-            return in_array($rel, $link->getRels());
-        };
-
-        return array_filter($this->links, $filter);
     }
 
     /**
