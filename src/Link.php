@@ -1,150 +1,69 @@
 <?php
-/**
- * Adapted and included from Symfony WebLink Component.
- */
 namespace Xanweb\ServerPush;
 
-use Psr\Link\EvolvableLinkInterface;
-
-class Link implements EvolvableLinkInterface
+/**
+ * @deprecated Use \Fig\Link\Link
+ */
+class Link extends \Fig\Link\Link
 {
-    // Relations defined in https://www.w3.org/TR/html5/links.html#links and applicable on link elements
+    /**
+     * @deprecated
+     */
     public const REL_ALTERNATE = 'alternate';
+    /**
+     * @deprecated
+     */
     public const REL_AUTHOR = 'author';
+    /**
+     * @deprecated
+     */
     public const REL_HELP = 'help';
+    /**
+     * @deprecated
+     */
     public const REL_ICON = 'icon';
+    /**
+     * @deprecated
+     */
     public const REL_LICENSE = 'license';
+    /**
+     * @deprecated
+     */
     public const REL_SEARCH = 'search';
+    /**
+     * @deprecated
+     */
     public const REL_STYLESHEET = 'stylesheet';
+    /**
+     * @deprecated
+     */
     public const REL_NEXT = 'next';
+    /**
+     * @deprecated
+     */
     public const REL_PREV = 'prev';
-
-    // Relation defined in https://www.w3.org/TR/preload/
+    /**
+     * @deprecated
+     */
     public const REL_PRELOAD = 'preload';
-
-    // Relations defined in https://www.w3.org/TR/resource-hints/
+    /**
+     * @deprecated
+     */
     public const REL_DNS_PREFETCH = 'dns-prefetch';
+    /**
+     * @deprecated
+     */
     public const REL_PRECONNECT = 'preconnect';
+    /**
+     * @deprecated
+     */
     public const REL_PREFETCH = 'prefetch';
+    /**
+     * @deprecated
+     */
     public const REL_PRERENDER = 'prerender';
-
-    // Extra relations
+    /**
+     * @deprecated
+     */
     public const REL_MERCURE = 'mercure';
-
-    private $href = '';
-
-    /**
-     * @var string[]
-     */
-    private $rel = [];
-
-    /**
-     * @var string[]
-     */
-    private $attributes = [];
-
-    public function __construct(string $rel = null, string $href = '')
-    {
-        if (null !== $rel) {
-            $this->rel[$rel] = $rel;
-        }
-        $this->href = $href;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getHref(): string
-    {
-        return $this->href;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getRels(): array
-    {
-        return array_values($this->rel);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAttributes(): array
-    {
-        return $this->attributes;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @return static
-     */
-    public function withHref($href)
-    {
-        $that = clone $this;
-        $that->href = $href;
-
-        return $that;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @return static
-     */
-    public function withRel($rel)
-    {
-        $that = clone $this;
-        $that->rel[$rel] = $rel;
-
-        return $that;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @return static
-     */
-    public function withoutRel($rel)
-    {
-        $that = clone $this;
-        unset($that->rel[$rel]);
-
-        return $that;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @return static
-     */
-    public function withAttribute($attribute, $value)
-    {
-        $that = clone $this;
-        $that->attributes[$attribute] = $value;
-
-        return $that;
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @return static
-     */
-    public function withoutAttribute($attribute)
-    {
-        $that = clone $this;
-        unset($that->attributes[$attribute]);
-
-        return $that;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isTemplated()
-    {
-        return false;
-    }
 }
